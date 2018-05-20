@@ -404,7 +404,7 @@ static int mt7601u_submit_rx(struct mt7601u_dev *dev)
 	int i, ret;
 
 	for (i = 0; i < dev->rx_q.entries; i++) {
-		ret = mt7601u_submit_rx_buf(dev, &dev->rx_q.e[i], GFP_KERNEL);
+		ret = mt7601u_submit_rx_buf(dev, &dev->rx_q.e[i], GFP_ATOMIC);
 		if (ret)
 			return ret;
 	}
