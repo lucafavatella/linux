@@ -525,7 +525,7 @@ int mt7601u_mcu_cmd_init(struct mt7601u_dev *dev)
 	}
 
 	ret = mt7601u_usb_submit_buf(dev, USB_DIR_IN, MT_EP_IN_CMD_RESP,
-				     &dev->mcu.resp, GFP_KERNEL,
+				     &dev->mcu.resp, GFP_ATOMIC,
 				     mt7601u_complete_urb, &dev->mcu.resp_cmpl);
 	if (ret) {
 		mt7601u_usb_free_buf(dev, &dev->mcu.resp);
